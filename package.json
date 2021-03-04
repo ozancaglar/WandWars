@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Wand Wars - A Game Inspired By The Harry Potter Universe",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
