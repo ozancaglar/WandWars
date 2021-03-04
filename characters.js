@@ -70,7 +70,8 @@ class SlytherinCharacter extends Character {
 let harry = new GryffindorCharacter(
   false,
   "Harry Potter",
-  charSpells.sectumsempra
+  charSpells.sectumsempra,
+  120
 );
 let draco = new SlytherinCharacter(
   true,
@@ -80,12 +81,14 @@ let draco = new SlytherinCharacter(
 let crabbe = new SlytherinCharacter(
   false,
   "Vincent Crabbe",
-  charSpells.fiendfyre
+  charSpells.fiendfyre,
+  undefined,
+  15
 );
-let neville = new GryffindorCharacter(true, "Neville Longbottom");
+let neville = new GryffindorCharacter(true, "Neville Longbottom", 110, 15);
 let luna = new RavenclawCharacter(true, "Luna Lovegood", charSpells.titillando);
 let Cho = new RavenclawCharacter(false, "Cho Chang");
-let cedric = new HufflepuffCharacter(true, "Cedric Diggary");
+let cedric = new HufflepuffCharacter(true, "Cedric Diggary", 90, 25);
 let hannah = new HufflepuffCharacter(false, "Hannah Abbott");
 
 // testing:
