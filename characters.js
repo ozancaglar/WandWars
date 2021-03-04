@@ -7,7 +7,7 @@ let charSpells = {
 };
 
 // create base class for all characters
-class Character {
+export class Character {
   constructor(name, house, spells = {}, health = 100, spellPower = 20) {
     this.name = name;
     this.spells = {
@@ -39,28 +39,28 @@ class Character {
 }
 
 // create house class so can have different identifying questions
-class GryffindorCharacter extends Character {
+export class GryffindorCharacter extends Character {
   constructor(isAccidentProne, name, spells, health, spellPower) {
     super(name, "Gryffindor", spells, health, spellPower);
     this.isAccidentProne = isAccidentProne;
   }
 }
 
-class RavenclawCharacter extends Character {
+export class RavenclawCharacter extends Character {
   constructor(believes, name, spells, health, spellPower) {
     super(name, "Ravenclaw", spells, health, spellPower);
     this.believes = believes;
   }
 }
 
-class HufflepuffCharacter extends Character {
+export class HufflepuffCharacter extends Character {
   constructor(playsQuidditch, name, spells, health, spellPower) {
     super(name, "Hufflepuff", spells, health, spellPower);
     this.playsQuidditch = playsQuidditch;
   }
 }
 
-class SlytherinCharacter extends Character {
+export class SlytherinCharacter extends Character {
   constructor(isLeader, name, spells, health, spellPower) {
     super(name, "Slytherin", spells, health, spellPower);
     this.isLeader = isLeader;
