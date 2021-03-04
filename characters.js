@@ -29,6 +29,13 @@ class Character {
       console.log(`Spell hit! ${this.name} lost ${spellDamage} HP`);
     }
   }
+  listSpells() {
+    // this will return an object of spells this character can use to choose from
+  }
+  castSpell(spell) {
+    // this will return an number based on spell cast, ready to put into reduce health
+    // I might include spell rebounded in here as well (chance of self-damage)
+  }
 }
 
 // create house class so can have different identifying questions
