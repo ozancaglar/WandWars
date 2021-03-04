@@ -1,6 +1,7 @@
 {
   "name": "WandWars",
   "version": "1.0.0",
+  "type": "module",
   "description": "Wand Wars - A Game Inspired By The Harry Potter Universe",
   "main": "index.js",
   "type": "module",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/bdhaddas/JS-Game#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "prompt-sync": "^4.2.0"
   }
 }
