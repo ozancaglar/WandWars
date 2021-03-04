@@ -1,11 +1,33 @@
+// should this go in index.js? because will use a lot
+let charSpells = {
+  sectumsempra: 0.8,
+  titillando: 0.4,
+  tarantallegra: 0.6,
+  fiendfyre: 1, // going to make this one do 20% damage to self as well
+};
+
 // create base class for all characters
 class Character {
-  constructor(name, house, spells = [], health = 100, spellPower = 50) {
+  constructor(name, house, spells = {}, health = 100, spellPower = 20) {
     this.name = name;
-    this.spells = ["Stupefy", "Expelliarmus", "Impedimenta", ...spells];
+    this.spells = {
+      stupefy: 0.9,
+      expelliarmus: 0.7,
+      impedimenta: 0.5,
+      ...spells,
+    };
     this.health = health;
     this.spellPower = spellPower;
-    this.house = "Gryffindor";
+    this.house = house;
+  }
+  reduceHealth(spellDamage) {
+    // chance of spell missing:
+    if (Math.random() < 0.2) {
+      console.log("Spell missed! No damage done.");
+    } else {
+      this.health -= spellDamage;
+      console.log(`Spell hit! ${this.name} lost ${spellDamage} HP`);
+    }
   }
 }
 
@@ -37,15 +59,32 @@ class SlytherinCharacter extends Character {
     this.isLeader = isLeader;
   }
 }
-// make new students in houses
-let harry = new GryffindorCharacter(false, "Harry Potter");
+// make new students in houses, this in index.js?
+let harry = new GryffindorCharacter(
+  false,
+  "Harry Potter",
+  charSpells.sectumsempra
+);
+let draco = new SlytherinCharacter(
+  true,
+  "Draco Malfoy",
+  charSpells.tarantallegra
+);
+let crabbe = new SlytherinCharacter(
+  false,
+  "Vincent Crabbe",
+  charSpells.fiendfyre
+);
 let neville = new GryffindorCharacter(true, "Neville Longbottom");
-let luna = new RavenclawCharacter(true, "Luna Lovegood");
+let luna = new RavenclawCharacter(true, "Luna Lovegood", charSpells.titillando);
 let Cho = new RavenclawCharacter(false, "Cho Chang");
 let cedric = new HufflepuffCharacter(true, "Cedric Diggary");
 let hannah = new HufflepuffCharacter(false, "Hannah Abbott");
-let draco = new SlytherinCharacter(true, "Draco Malfoy");
-let crabbe = new SlytherinCharacter(false, "Vincent Crabbe");
+
+// testing:
+console.log(draco.health);
+draco.reduceHealth(20);
+console.log(draco.health);
 
 // Default:
 // health:100
