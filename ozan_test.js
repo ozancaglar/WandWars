@@ -1,4 +1,31 @@
+/*
+const character = require("./characters");
+const prompt = require("prompt-sync")({sigint: true});
+const player = character.draco;
+player.listSpells();
+let spellNum = '';
+while (!spellNum) {
+    spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${player.spells.length}.`);
+    if (Number(spellNum) > player.spells.length || Number(spellNum < 1)){
+        spellNum ='';
+    } 
+    switch(Number(spellNum)) { // perhaps regex?
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            console.log(`Enter a number between 1 and ${player.spells.length} to cast a spell.`)
+      }
+}
+*/
 // This is just me trying things out, please ignore it, from Issy
+
+
 
 const character = require("./characters");
 const prompt = require("prompt-sync")({sigint: true});
