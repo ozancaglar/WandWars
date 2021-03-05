@@ -1,12 +1,12 @@
 const Spell = require("./spells");
-const prompt = require("prompt-sync")({sigint: true});
+const prompt = require("prompt-sync")({ sigint: true });
 // create base class for all characters
 class Character {
   constructor(
     house,
     name,
     spells = [],
-    health = 100,
+    health = 60,
     spellPower = 20,
     isOpponent
   ) {
@@ -27,10 +27,10 @@ class Character {
     // chance of spell missing:
     if (spellDamage > 0) {
       if (Math.random() < 0.2) {
-        console.log("Whoops, spell missed! No damage done.");
+        console.log("Whoops, spell missed! No damage dealt.\n");
       } else {
         this.health -= spellDamage;
-        console.log(`Spell hit! ${spellDamage} damage done.`);
+        console.log(`Spell hit! ${spellDamage} damage dealt.\n`);
         // console.log(`${this.name} Now has ${this.health} HP`);
       }
     }
@@ -41,13 +41,19 @@ class Character {
       console.log(`${i + 1} - ${this.spells[i].name}`);
     }
   }
-  spellSelect(){
+  spellSelect() {
     while (!spellNum) {
-        spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${this.spells.length}: `);
-        if (Number(spellNum) > this.spells.length || Number(spellNum < 1) || !Number.isInteger(Number(spellNum))) {
-            console.log(`Number was not valid.`)
-            spellNum ='';
-        }
+      spellNum = prompt(
+        `What spell do you want to use? Enter a number between 1 and ${this.spells.length}: `
+      );
+      if (
+        Number(spellNum) > this.spells.length ||
+        Number(spellNum < 1) ||
+        !Number.isInteger(Number(spellNum))
+      ) {
+        console.log(`\nNumber was not valid.\n`);
+        spellNum = "";
+      }
     }
   }
   // this is calculated for the attacking character and will return an number based on spell cast, ready to put into reduce health
@@ -100,7 +106,7 @@ module.exports = {
     false,
     "Harry Potter",
     [new Spell("Sectumsempra", 0.8, 0.15)],
-    120
+    70
   ),
   draco: new SlytherinCharacter(true, "Draco Malfoy", [
     new Spell("Tarantallegra", 0.6, 0.1),
@@ -112,12 +118,18 @@ module.exports = {
     undefined,
     15
   ),
-  neville: new GryffindorCharacter(true, "Neville Longbottom", 110, 15),
+  neville: new GryffindorCharacter(
+    true,
+    "Neville Longbottom",
+    undefined,
+    70,
+    15
+  ),
   luna: new RavenclawCharacter(true, "Luna Lovegood", [
     new Spell("Titillando", 0.4, 0),
   ]),
   cho: new RavenclawCharacter(false, "Cho Chang"),
-  cedric: new HufflepuffCharacter(true, "Cedric Diggary", 90, 25),
+  cedric: new HufflepuffCharacter(true, "Cedric Diggary", undefined, 55, 25),
   hannah: new HufflepuffCharacter(false, "Hannah Abbott"),
   // house, name, spells = [], health = 100, spellPower = 20
   // "Avada kedavra", "Crucio", "Imperio"
@@ -125,11 +137,11 @@ module.exports = {
     "Slytherin",
     "Voldemort",
     [
-      new Spell("Avada kedavra", 1, 0.5),
-      new Spell("Crucio", 0.8, 0.5),
-      new Spell("Imperio", 0.6, 0.5),
+      new Spell("Avada kedavra", 1, 0.3),
+      new Spell("Crucio", 0.8, 0.3),
+      new Spell("Imperio", 0.6, 0.3),
     ],
-    110,
+    70,
     25,
     true
   ),
@@ -137,11 +149,11 @@ module.exports = {
     "Gryffindor",
     "Dumbledore",
     [
-      new Spell("Firestorm", 1, 0.5),
-      new Spell("Forceful", 0.8, 0.5),
-      new Spell("Hydro", 0.6, 0.5),
+      new Spell("Firestorm", 1, 0.3),
+      new Spell("Forceful", 0.8, 0.3),
+      new Spell("Hydro", 0.6, 0.3),
     ],
-    110,
+    70,
     25,
     true
   ),
