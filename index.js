@@ -19,51 +19,43 @@ if (player.house === "Slytherin") {
 
 // Intro
 console.log(`Oh no! It's ${opponent.name}! Time to duel!`);
-wait(1000)
+console.log(`${player.name}: ${player.health} HP`);
+console.log(`${opponent.name}: ${opponent.health} HP`);
+
 while (player.health > 0 && opponent.health > 0) {
   // Me attacking
   console.log("Your turn to attack!");
-//   wait(1000)
-  console.log(`${opponent.name} has ${opponent.health} HP`);
-//   wait(1000)
   console.log("Here are your spells...");
-//   wait(1000)
   player.listSpells();
   spellNum = '';
   player.spellSelect();
   const spell = player.spells[spellNum - 1];
-  console.clear()
+  console.clear();
   console.log(`You cast ${spell.name}!`);
   const spellDamage = player.castSpell(spell);
   opponent.reduceHealth(spellDamage);
   console.log(`${player.name}: ${player.health} HP`);
   console.log(`${opponent.name}: ${opponent.health} HP`);
 
-  console.log(`You cast ${spell.name}!`);
-//   wait(1000)
-  opponent.reduceHealth(spellDamage);
-//   wait(1000)
-  console.log(`${opponent.name} now has ${opponent.health} HP.`);
+  if (opponent.health <= 0) {
+    break;
+  }
 
   // Them attacking
   console.log(`${opponent.name} is attacking!`);
-//   wait(1000);
-  console.log(`You have ${player.health} HP`);
-//   wait(1000);
   const oppSpellNum = Math.floor(Math.random() * 3);
-//   wait(1000);
   const oppSpell = opponent.spells[oppSpellNum];
+  console.log(`${opponent.name} used ${oppSpell.name}!`);
   const oppSpellDamage = opponent.castSpell(oppSpell);
-  console.log(`He used ${oppSpell.name}!`);
-//   wait(1500);
   player.reduceHealth(oppSpellDamage);
-  console.log(`You now have ${player.health} HP`);
+  console.log(`${player.name}: ${player.health} HP`);
+  console.log(`${opponent.name}: ${opponent.health} HP`);
 }
 
 if (player.health >= 0) {
-  console.log(`YOU DIED! ${opponent.name.toUpperCase()} WINS!`);
-} else {
   console.log(`YOU WIN! ${opponent.name.toUpperCase()} IS DEFEATED!`);
+} else {
+  console.log(`YOU DIED! ${opponent.name.toUpperCase()} WINS!`);
 }
 
 // pauses?
