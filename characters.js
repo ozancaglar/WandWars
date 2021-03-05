@@ -1,5 +1,5 @@
 const Spell = require("./spells");
-
+const prompt = require("prompt-sync")({sigint: true});
 // create base class for all characters
 class Character {
   constructor(
@@ -41,7 +41,18 @@ class Character {
       console.log(`${i + 1} - ${this.spells[i].name}`);
     }
   }
-
+  spellSelect(){
+    while (!spellNum) {
+        spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${this.spells.length}.`);
+        if (Number(spellNum) > this.spells.length || Number(spellNum < 1) || !Number.isInteger(Number(spellNum))) {
+            spellNum ='';
+        } 
+        switch(Number(spellNum)) { 
+            default:
+                console.log(`Enter a number between 1 and ${this.spells.length} to cast a spell.`)
+          }
+    }
+  }
   // this is calculated for the attacking character and will return an number based on spell cast, ready to put into reduce health
   // I might include spell rebounded in here as well (chance of self-damage)
   castSpell(spell) {
