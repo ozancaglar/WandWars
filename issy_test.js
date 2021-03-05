@@ -1,7 +1,7 @@
 // This is just me trying things out, please ignore it, from Issy
 
 const character = require("./characters");
-const prompt = require("prompt-sync")({sigint: true});
+const prompt = require("prompt-sync")();
 
 const player = character.draco; // this can change
 let opponent;
@@ -20,8 +20,7 @@ while (player.health > 0 && opponent.health > 0) {
   console.log(`${opponent.name} has ${opponent.health} HP`);
   console.log("Here are your spells...");
   player.listSpells();
-  spellNum = '';
-  player.spellSelect();
+  const spellNum = prompt("Please enter the number of your spell: ");
   const spell = player.spells[spellNum - 1];
   const spellDamage = player.castSpell(spell);
   console.log(`You cast ${spell.name}!`);

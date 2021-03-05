@@ -1,34 +1,13 @@
-/*
-const character = require("./characters");
-const prompt = require("prompt-sync")({sigint: true});
-const player = character.draco;
-player.listSpells();
-let spellNum = '';
-while (!spellNum) {
-    spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${player.spells.length}.`);
-    if (Number(spellNum) > player.spells.length || Number(spellNum < 1)){
-        spellNum ='';
-    } 
-    switch(Number(spellNum)) { // perhaps regex?
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        default:
-            console.log(`Enter a number between 1 and ${player.spells.length} to cast a spell.`)
-      }
-}
-*/
 // This is just me trying things out, please ignore it, from Issy
 
-
-
 const character = require("./characters");
-const prompt = require("prompt-sync")({sigint: true});
+function wait(ms) {
+  var start = Date.now(),
+      now = start;
+  while (now - start < ms) {
+    now = Date.now();
+  }
+}
 
 const player = character.draco; // this can change
 let opponent;
@@ -40,30 +19,40 @@ if (player.house === "Slytherin") {
 
 // Intro
 console.log(`Oh no! It's ${opponent.name}! Time to duel!`);
-
+wait(1000)
 while (player.health > 0 && opponent.health > 0) {
   // Me attacking
   console.log("Your turn to attack!");
+  wait(1000)
   console.log(`${opponent.name} has ${opponent.health} HP`);
+  wait(1000)
   console.log("Here are your spells...");
+  wait(1000)
   player.listSpells();
   spellNum = '';
   player.spellSelect();
   const spell = player.spells[spellNum - 1];
   const spellDamage = player.castSpell(spell);
+  console.clear() // clears console so things are more readable.
   console.log(`You cast ${spell.name}!`);
+  wait(1000)
   opponent.reduceHealth(spellDamage);
+  wait(1000)
   console.log(`${opponent.name} now has ${opponent.health} HP.`);
 
   // Them attacking
   console.log(`${opponent.name} is attacking!`);
+  wait(1000);
   console.log(`You have ${player.health} HP`);
+  wait(1000);
   const oppSpellNum = Math.floor(Math.random() * 3);
+  wait(1000);
   const oppSpell = opponent.spells[oppSpellNum];
   const oppSpellDamage = opponent.castSpell(oppSpell);
   console.log(`He used ${oppSpell.name}!`);
+  wait(1500);
   player.reduceHealth(oppSpellDamage);
-  console.log(`You now now have ${player.health} HP`);
+  console.log(`You now have ${player.health} HP`);
 }
 
 if (player.health >= 0) {
