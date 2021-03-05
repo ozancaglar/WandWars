@@ -1,7 +1,6 @@
 {
   "name": "WandWars",
   "version": "1.0.0",
-  "type": "module",
   "description": "Wand Wars - A Game Inspired By The Harry Potter Universe",
   "main": "index.js",
   "scripts": {
