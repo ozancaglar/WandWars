@@ -2,7 +2,7 @@
 
 const character = require("./characters");
 function wait(ms) {
-  var start = Date.now(),
+  let start = Date.now(),
       now = start;
   while (now - start < ms) {
     now = Date.now();
@@ -23,34 +23,35 @@ wait(1000)
 while (player.health > 0 && opponent.health > 0) {
   // Me attacking
   console.log("Your turn to attack!");
-  wait(1000)
+//   wait(1000)
   console.log(`${opponent.name} has ${opponent.health} HP`);
-  wait(1000)
+//   wait(1000)
   console.log("Here are your spells...");
-  wait(1000)
+//   wait(1000)
   player.listSpells();
   spellNum = '';
   player.spellSelect();
   const spell = player.spells[spellNum - 1];
-  const spellDamage = player.castSpell(spell);
   console.clear() // clears console so things are more readable.
+  const spellDamage = player.castSpell(spell);
+
   console.log(`You cast ${spell.name}!`);
-  wait(1000)
+//   wait(1000)
   opponent.reduceHealth(spellDamage);
-  wait(1000)
+//   wait(1000)
   console.log(`${opponent.name} now has ${opponent.health} HP.`);
 
   // Them attacking
   console.log(`${opponent.name} is attacking!`);
-  wait(1000);
+//   wait(1000);
   console.log(`You have ${player.health} HP`);
-  wait(1000);
+//   wait(1000);
   const oppSpellNum = Math.floor(Math.random() * 3);
-  wait(1000);
+//   wait(1000);
   const oppSpell = opponent.spells[oppSpellNum];
   const oppSpellDamage = opponent.castSpell(oppSpell);
   console.log(`He used ${oppSpell.name}!`);
-  wait(1500);
+//   wait(1500);
   player.reduceHealth(oppSpellDamage);
   console.log(`You now have ${player.health} HP`);
 }
