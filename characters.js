@@ -42,10 +42,10 @@ class Character {
   spellSelect(){
     while (!spellNum) {
         spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${this.spells.length}.`);
-        if (Number(spellNum) > this.spells.length || Number(spellNum < 1)){
+        if (Number(spellNum) > this.spells.length || Number(spellNum < 1) || !Number.isInteger(Number(spellNum))) {
             spellNum ='';
         } 
-        switch(Number(spellNum)) { // perhaps regex?
+        switch(Number(spellNum)) { 
             case 1:
                 break;
             case 2:
