@@ -46,14 +46,6 @@ class Character {
             spellNum ='';
         } 
         switch(Number(spellNum)) { 
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
             default:
                 console.log(`Enter a number between 1 and ${this.spells.length} to cast a spell.`)
           }
