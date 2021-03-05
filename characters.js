@@ -43,14 +43,11 @@ class Character {
   }
   spellSelect(){
     while (!spellNum) {
-        spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${this.spells.length}.`);
+        spellNum = prompt(`What spell do you want to use? Enter a number between 1 and ${this.spells.length}: `);
         if (Number(spellNum) > this.spells.length || Number(spellNum < 1) || !Number.isInteger(Number(spellNum))) {
+            console.log(`Number was not valid.`)
             spellNum ='';
-        } 
-        switch(Number(spellNum)) { 
-            default:
-                console.log(`Enter a number between 1 and ${this.spells.length} to cast a spell.`)
-          }
+        }
     }
   }
   // this is calculated for the attacking character and will return an number based on spell cast, ready to put into reduce health
