@@ -25,12 +25,14 @@ class Character {
   reduceHealth(spellDamage) {
     // this is applied to the victim character
     // chance of spell missing:
-    if (Math.random() < 0.2) {
-      console.log("Spell missed! No damage done.");
-    } else {
-      this.health -= spellDamage;
-      console.log(`Spell hit! ${spellDamage} damage done.`);
-      // console.log(`${this.name} Now has ${this.health} HP`);
+    if (spellDamage > 0) {
+      if (Math.random() < 0.2) {
+        console.log("Whoops, spell missed! No damage done.");
+      } else {
+        this.health -= spellDamage;
+        console.log(`Spell hit! ${spellDamage} damage done.`);
+        // console.log(`${this.name} Now has ${this.health} HP`);
+      }
     }
   }
   listSpells() {
@@ -55,7 +57,14 @@ class Character {
   // I might include spell rebounded in here as well (chance of self-damage)
   castSpell(spell) {
     // I need a spell CLASS inputted, not a string
-    return spell.strength * this.spellPower;
+    let spellDamage = spell.strength * this.spellPower;
+    if (Math.random() < spell.reboundChance) {
+      console.log("Oh no! The spell rebounded!");
+      this.reduceHealth(spellDamage);
+      return 0;
+    } else {
+      return spellDamage;
+    }
   }
 }
 
