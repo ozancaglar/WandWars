@@ -1,6 +1,6 @@
 
 const character = require("./characters");
-const stats = require("./stat_tracker_json");
+const stats = require("./statTracker");
 function wait(ms) {
   let start = Date.now(),
       now = start;
@@ -58,7 +58,7 @@ while (player.health > 0 && opponent.health > 0) {
 
 if (player.health >= 0) {
   console.log(`YOU DIED! ${opponent.name.toUpperCase()} WINS!`);
-  stats.lossTrack();
+  stats.lossTrack(); // let me push
 } else {
   console.log(`YOU WIN! ${opponent.name.toUpperCase()} IS DEFEATED!`);
   stats.winTrack();
