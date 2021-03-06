@@ -1,3 +1,5 @@
+// This is just me trying things out, please ignore it, from Issy
+var fs = require("fs");
 const character = require("./characters");
 const art = require("./art");
 // const readline = require('readline');
