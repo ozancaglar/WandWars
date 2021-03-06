@@ -136,7 +136,7 @@ else {
     
 }
 
-
+console.log(player)
 
 
 //var q2 = prompt(q1);
