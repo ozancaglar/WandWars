@@ -1,5 +1,13 @@
-const Spell = require("./spells");
 const prompt = require("prompt-sync")({ sigint: true });
+
+class Spell {
+  constructor(name, strength, reboundChance) {
+    this.name = name;
+    this.strength = strength;
+    this.reboundChance = reboundChance;
+  }
+}
+
 // create base class for all characters
 class Character {
   constructor(
@@ -24,19 +32,18 @@ class Character {
   }
   reduceHealth(spellDamage) {
     // this is applied to the victim character
-    // chance of spell missing:
     if (spellDamage > 0) {
       if (Math.random() < 0.2) {
+        // chance of spell missing
         console.log("Whoops, spell missed! No damage dealt.\n");
       } else {
         this.health -= spellDamage;
         console.log(`Spell hit! ${spellDamage} damage dealt.\n`);
-        // console.log(`${this.name} Now has ${this.health} HP`);
       }
     }
   }
   listSpells() {
-    // this will return an object of spells this character can use to choose from
+    // this will return an object of spells for player to choose from
     for (let i = 0; i < this.spells.length; i++) {
       console.log(`${i + 1} - ${this.spells[i].name}`);
     }
@@ -56,12 +63,10 @@ class Character {
       }
     }
   }
-  // this is calculated for the attacking character and will return an number based on spell cast, ready to put into reduce health
-  // I might include spell rebounded in here as well (chance of self-damage)
   castSpell(spell) {
-    // I need a spell CLASS inputted, not a string
     let spellDamage = spell.strength * this.spellPower;
     if (Math.random() < spell.reboundChance) {
+      // chance of spell rebounding
       console.log("Oh no! The spell rebounded!");
       this.reduceHealth(spellDamage);
       return 0;
@@ -99,7 +104,6 @@ class SlytherinCharacter extends Character {
     this.isLeader = isLeader;
   }
 }
-// make new students in houses, this in index.js?
 
 module.exports = {
   harry: new GryffindorCharacter(
