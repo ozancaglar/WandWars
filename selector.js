@@ -67,9 +67,6 @@ function initPlayer() {
     //   let player = q2
     
 
-<<<<<<< HEAD
-console.log(player)
-=======
     else {
         q1 = "What do you value most in a friend? ";
 
@@ -147,7 +144,6 @@ console.log(player)
         }
         
     }
->>>>>>> b5d1583d62331378a09c39944268c5d5d02cdb95
 
 
 
