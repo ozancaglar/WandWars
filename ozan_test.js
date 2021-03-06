@@ -1,6 +1,6 @@
-// This is just me trying things out, please ignore it, from Issy
 
 const character = require("./characters");
+const stats = require("./stat_tracker_json");
 function wait(ms) {
   let start = Date.now(),
       now = start;
@@ -58,8 +58,11 @@ while (player.health > 0 && opponent.health > 0) {
 
 if (player.health >= 0) {
   console.log(`YOU DIED! ${opponent.name.toUpperCase()} WINS!`);
+  stats.lossTrack();
 } else {
   console.log(`YOU WIN! ${opponent.name.toUpperCase()} IS DEFEATED!`);
+  stats.winTrack();
 }
+stats.winPercentage();
 
 // pauses?

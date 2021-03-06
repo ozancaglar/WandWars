@@ -1,5 +1,6 @@
 // This is just me trying things out, please ignore it, from Issy
 const prompt = require("prompt-sync")({sigint: true});
+var fs = require("fs");
 const character = require("./characters");
 function wait(ms) {
   let start = Date.now(),
