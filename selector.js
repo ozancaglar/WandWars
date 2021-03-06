@@ -1,11 +1,11 @@
-const prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')({sigint: true});
 const { draco, harry, crabbe, neville, luna, cho, cedric, hannah } = require('./characters');
 let Characters = require("./characters");
 
 
-var q1 = prompt("Do you know what character you want to play as? ");
+var q1 = prompt("Do you know what character you want to play as? (Y/N) ");
 
-if (q1.includes("y")) {
+if ("yY".includes(q1)) {
     q1 = "Select your Character ";
     console.log ("1: " + harry.name)
     console.log ("2: " + draco.name)
@@ -17,7 +17,16 @@ if (q1.includes("y")) {
     console.log ("8: " + hannah.name)
 
     var player;
-    var q2 = prompt(q1);
+    var q2;
+    var validPlayer = false;
+    do {
+        q2 = prompt(q1);
+        validPlayer = (q2 == "1") || (q2 == "2") || (q2 == "3") || (q2 == "4") || (q2 == "5") || (q2 == "6") || (q2 == "7") || (q2 == "8");
+        if ( !validPlayer){
+            console.log("not Valid - try again");
+        }
+    } while ( !validPlayer)
+
     switch (q2) {
         case "1":
             player = harry;
@@ -59,7 +68,7 @@ if (q1.includes("y")) {
  
 
 else {
-    q1 = "What do you value most in a friend?";
+    q1 = "What do you value most in a friend? ";
 
     console.log("1 - Ambision")
     console.log("2 - Intelligence")
@@ -78,9 +87,9 @@ else {
     switch (q2) {
         case "1":
             console.log("You are Slytherin")
-            var q3 = prompt("Do you comes up with all plans? ")
+            var q3 = prompt("Do you comes up with all plans? (Y/N) ")
     
-            if (q3.includes("y")) {
+            if ("yY".includes(q3)) {
                 player = draco;
                 
             }
@@ -94,9 +103,9 @@ else {
     
         case "2":
             console.log("You are Ravenclaw")
-            var q3 = prompt("Do you believe in the Crumple-Horned Snorkacks? ")
+            var q3 = prompt("Do you believe in the Crumple-Horned Snorkacks? (Y/N) ")
     
-            if (q3.includes("y")) {
+            if ("yY".includes(q3)) {
                 player = luna;
                 
             }
@@ -109,9 +118,9 @@ else {
     
         case "3":
             console.log("You are Hufflepuff")
-            var q3 = prompt("Are you good at Quidditch? ")
+            var q3 = prompt("Are you good at Quidditch? (Y/N) ")
     
-            if (q3.includes("y")) {
+            if ("yY".includes(q3)) {
                 player = cedric;
             }
     
@@ -122,9 +131,9 @@ else {
         
         case "4":
             console.log("You are Gryffindor")
-            var q3 = prompt("Are you accident-prone? ")
+            var q3 = prompt("Are you accident-prone? (Y/N) ")
     
-            if (q3.includes("y")) {
+            if ("yY".includes(q3)) {
                 player = harry;
             }
     
@@ -151,6 +160,6 @@ if (q2 == "4") {q2 = "Are you accident-prone >";}
 
 console.log ("Hello there " + player.name + " of " + player.house);
 
-
-//console.log (player);
-
+module.exports = {
+player
+}
