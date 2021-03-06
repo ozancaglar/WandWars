@@ -30,7 +30,7 @@ function showScores() {
   wait(3000);
 }
 
-const player = character.draco; // this character can change
+const player = character.n; // this character can change
 let opponent;
 if (player.house === "Slytherin") {
   opponent = character.dumbledore;

@@ -16,7 +16,7 @@ class Character {
       : [
           new Spell("Stupefy", 0.9, 0.15),
           new Spell("Expelliarmus", 0.7, 0.1),
-          new Spell("Impedimenta", 0.5, 0.2),
+          new Spell("Impedimenta"),
         ].concat(spells);
     this.health = health;
     this.spellPower = spellPower;
