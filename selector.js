@@ -81,17 +81,12 @@ else {
             var q3 = prompt("Do you comes up with all plans? ")
     
             if (q3.includes("y")) {
-                let player = "Draco Malfoy";
-                console.log("You are");
-                console.log(player);
+                player = draco;
                 
             }
             
             else {
-                let player = "Vincent Crabble";
-                console.log("You are");
-                console.log(player);
-                
+                player = crabbe;
             }
     
           break;
@@ -102,16 +97,12 @@ else {
             var q3 = prompt("Do you believe in the Crumple-Horned Snorkacks? ")
     
             if (q3.includes("y")) {
-                let player = "Luna Lovegood";
-                console.log("You are");
-                console.log(player);
+                player = luna;
                 
             }
             
             else {
-                let player = "Cho Chang";
-                console.log("You are");
-                console.log(player);
+                player = cho;
             }
           break;
     
@@ -121,15 +112,11 @@ else {
             var q3 = prompt("Are you good at Quidditch? ")
     
             if (q3.includes("y")) {
-                let player = "Cedric Diggory";
-                console.log("You are");
-                console.log(player);
+                player = cedric;
             }
     
             else {
-                let player = "Hannah Abbott";
-                console.log("You are");
-                console.log(player);
+                player = hannah;
             }
           break;
         
@@ -138,15 +125,11 @@ else {
             var q3 = prompt("Are you accident-prone? ")
     
             if (q3.includes("y")) {
-                let player = "Harry Potter";
-                console.log("You are");
-                console.log(player);
+                player = harry;
             }
     
             else {
-                let player = "Neville Longbottom";
-                console.log("You are");
-                console.log(player);
+                player = neville;
             }
           break;
     }
@@ -167,3 +150,7 @@ if (q2 == "4") {q2 = "Are you accident-prone >";}
 
 
 console.log ("Hello there " + player.name + " of " + player.house);
+
+
+//console.log (player);
+
