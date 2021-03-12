@@ -1,6 +1,3 @@
-const fs = require("fs");
-const character = require("./characters");
-const art = require("./art");
 const { wait, showScores } = require("./helpers");
 
 function gameLoop(player, opponent) {

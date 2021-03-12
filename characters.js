@@ -77,64 +77,64 @@ class Character {
 }
 
 // create house class so can have different identifying questions
-class GryffindorCharacter extends Character {
-  constructor(isAccidentProne, ...args) {
-    super("Gryffindor", ...args);
-    this.isAccidentProne = isAccidentProne;
-  }
-}
+// class GryffindorCharacter extends Character {
+//   constructor(isAccidentProne, ...args) {
+//     super("Gryffindor", ...args);
+//     this.isAccidentProne = isAccidentProne;
+//   }
+// }
 
-class RavenclawCharacter extends Character {
-  constructor(believes, ...args) {
-    super("Ravenclaw", ...args);
-    this.believes = believes;
-  }
-}
+// class RavenclawCharacter extends Character {
+//   constructor(believes, ...args) {
+//     super("Ravenclaw", ...args);
+//     this.believes = believes;
+//   }
+// }
 
-class HufflepuffCharacter extends Character {
-  constructor(playsQuidditch, ...args) {
-    super("Hufflepuff", ...args);
-    this.playsQuidditch = playsQuidditch;
-  }
-}
+// class HufflepuffCharacter extends Character {
+//   constructor(playsQuidditch, ...args) {
+//     super("Hufflepuff", ...args);
+//     this.playsQuidditch = playsQuidditch;
+//   }
+// }
 
-class SlytherinCharacter extends Character {
-  constructor(isLeader, ...args) {
-    super("Slytherin", ...args);
-    this.isLeader = isLeader;
-  }
-}
+// class SlytherinCharacter extends Character {
+//   constructor(isLeader, ...args) {
+//     super("Slytherin", ...args);
+//     this.isLeader = isLeader;
+//   }
+// }
 
 module.exports = {
-  harry: new GryffindorCharacter(
-    false,
+  harry: new Character(
+    "Gryffindor",
     "Harry Potter",
     [new Spell("Sectumsempra", 0.8, 0.15)],
     70
   ),
-  draco: new SlytherinCharacter(true, "Draco Malfoy", [
+  draco: new Character("Slytherin", "Draco Malfoy", [
     new Spell("Tarantallegra", 0.6, 0.1),
   ]),
-  crabbe: new SlytherinCharacter(
-    false,
+  crabbe: new Character(
+    "Slytherin",
     "Vincent Crabbe",
     [new Spell("Fiendfyre", 1, 0.5)],
     undefined,
     15
   ),
-  neville: new GryffindorCharacter(
-    true,
+  neville: new Character(
+    "Gryffindor",
     "Neville Longbottom",
     undefined,
     70,
     15
   ),
-  luna: new RavenclawCharacter(true, "Luna Lovegood", [
+  luna: new Character("Ravenclaw", "Luna Lovegood", [
     new Spell("Titillando", 0.4, 0),
   ]),
-  cho: new RavenclawCharacter(false, "Cho Chang"),
-  cedric: new HufflepuffCharacter(true, "Cedric Diggary", undefined, 55, 25),
-  hannah: new HufflepuffCharacter(false, "Hannah Abbott"),
+  cho: new Character("Ravenclaw", "Cho Chang"),
+  cedric: new Character("Hufflepuff", "Cedric Diggary", undefined, 55, 25),
+  hannah: new Character("Hufflepuff", "Hannah Abbott"),
   // house, name, spells = [], health = 100, spellPower = 20
   // "Avada kedavra", "Crucio", "Imperio"
   voldemort: new Character(
