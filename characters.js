@@ -75,36 +75,6 @@ class Character {
     }
   }
 }
-
-// create house class so can have different identifying questions
-// class GryffindorCharacter extends Character {
-//   constructor(isAccidentProne, ...args) {
-//     super("Gryffindor", ...args);
-//     this.isAccidentProne = isAccidentProne;
-//   }
-// }
-
-// class RavenclawCharacter extends Character {
-//   constructor(believes, ...args) {
-//     super("Ravenclaw", ...args);
-//     this.believes = believes;
-//   }
-// }
-
-// class HufflepuffCharacter extends Character {
-//   constructor(playsQuidditch, ...args) {
-//     super("Hufflepuff", ...args);
-//     this.playsQuidditch = playsQuidditch;
-//   }
-// }
-
-// class SlytherinCharacter extends Character {
-//   constructor(isLeader, ...args) {
-//     super("Slytherin", ...args);
-//     this.isLeader = isLeader;
-//   }
-// }
-
 module.exports = {
   harry: new Character(
     "Gryffindor",
