@@ -1,10 +1,10 @@
 var character = require("./characters");
 var art = require("./art");
 var helpers = require("./helpers");
-var initPlayer = require("./selector").initPlayer;
+var selector = require("./selector");
 var gameLoop = require("./game_loop").gameLoop;
 var stats = require("./statTracker");
-var player = initPlayer();
+var player = selector.initPlayer();
 var opponent;
 if (player.house === "Slytherin") {
     opponent = character.dumbledore;

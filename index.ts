@@ -1,11 +1,11 @@
 const character = require("./characters");
 const art = require("./art");
 const helpers = require("./helpers");
-const { initPlayer } = require("./selector");
+const selector = require("./selector");
 const { gameLoop } = require("./game_loop");
 const stats = require("./statTracker");
 
-let player = initPlayer();
+let player = selector.initPlayer();
 
 let opponent;
 if (player.house === "Slytherin") {
