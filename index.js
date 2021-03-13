@@ -34,4 +34,3 @@ if (player.health >= 0) {
   showScores(player, opponent);
   stats.lossTrack();
 }
-stats.winPercentage();

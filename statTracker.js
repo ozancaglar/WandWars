@@ -1,23 +1,30 @@
 fs = require('fs');
+if (fs.existsSync('stats.json')){
+} else {
+    let stats = {"win":0,"loss":0}
+    let statsString = JSON.stringify(stats)
+    fs.writeFileSync("stats.json", statsString)
+}
+var statFileName = 'stats.json';
+var writeData = JSON.parse(fs.readFileSync(statFileName).toString());
+
 function winTrack(){
-    let name = 'stats.json';
-    let accessData = JSON.parse(fs.readFileSync(name).toString());
-    accessData['win'] += 1;
-    fs.writeFileSync(name, JSON.stringify(accessData));
+    writeData['win'] += 1;
+    fs.writeFileSync(statFileName, JSON.stringify(writeData));
+    winPercentage();
 }
 function lossTrack(){
-    let name = 'stats.json';
-    let accessData = JSON.parse(fs.readFileSync(name).toString());
-    accessData['loss'] += 1;
-    fs.writeFileSync(name, JSON.stringify(accessData));
+    writeData['loss'] += 1;
+    fs.writeFileSync(statFileName, JSON.stringify(writeData));
+    winPercentage();
 }
 function winPercentage(){
-    let name = 'stats.json';
-    let accessData = JSON.parse(fs.readFileSync(name).toString());
-    console.log(`You have a ${Math.round(100*accessData['win']/(accessData['win'] + accessData['loss']))} % win rate! You have won ${accessData['win']} times and lost ${accessData['loss']} times.`);
+    console.log(`You have a ${Math.round(100*writeData['win']/(writeData['win'] + writeData['loss']))} % win rate! You have won ${writeData['win']} times and lost ${writeData['loss']} times.`);
 }
 module.exports = {
     winTrack,
     lossTrack,
-    winPercentage
+}
+if (require.main === module) {
+    winTrack();
 }
