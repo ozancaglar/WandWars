@@ -81,7 +81,7 @@ function initPlayer() {
   } else {
     q1 = "Which do you value most in a friend? ";
 
-    console.log("\n1 - Ambision");
+    console.log("\n1 - Ambition");
     console.log("2 - Intelligence");
     console.log("3 - Kindness");
     console.log("4 - Bravery");
